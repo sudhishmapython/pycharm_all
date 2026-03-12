@@ -1,0 +1,25 @@
+{% extends 'theme.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+    <div class="row">
+        <div class="card text-center" style="width: 25rem;">
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+
+
+                {{updateform|crispy}}
+
+                <input type="submit" value="Submit">
+            </form>
+
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

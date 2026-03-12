@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Chatbot</title>
+</head>
+<body>
+    <h2>Ask AI</h2>
+    <textarea id="question"></textarea><br>
+    <button onclick="askAI()">Send</button>
+    <p id="answer"></p>
+
+    <script>
+async function askAI() {
+    let question = document.getElementById("question").value;
+
+    try {
+        let response = await fetch("/chatbot/ask/", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({question: question})
+        });
+
+        let data = await response.json();  // parse JSON correctly
+        console.log(data);                 // check what you got
+
+        if (data.answer) {
+            document.getElementById("answer").innerText = data.answer;
+        } else if (data.error) {
+            document.getElementById("answer").innerText = "Error: " + data.error;
+        } else {
+            document.getElementById("answer").innerText = "No response";
+        }
+
+    } catch (err) {
+        console.error(err);
+        document.getElementById("answer").innerText = "Request failed";
+    }
+}
+</script>
+</body>
+</html>

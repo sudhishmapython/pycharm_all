@@ -1,0 +1,27 @@
+{% extends 'theme.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+    <div class="row">
+        <div class="card text-center" style="width: 25rem;">
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {{form|crispy}}
+
+
+<!--                Name:pext" id="name" name="name1"><br><br>-->
+<!--                course<input type="text" id="course" name="course1"><br><br>-->
+<!--                mark<input type="text" id="mark" name="mark"><br><br>-->
+                <input type="submit" value="Submit">
+            </form>
+
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

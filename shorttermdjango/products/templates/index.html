@@ -1,0 +1,68 @@
+{% extends 'theme.html' %}
+{%block content %}
+
+
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        {%  for product in product %}-->
+<!--        <div class="col-md-3">-->
+
+<!--            <div class="card">-->
+<!--  <img src="{{product.image}}" class="card-img-top" alt="..." style="height:300px" >-->
+<!--  <div class="card-body">-->
+<!--    <h5 class="card-title">{{product.name}}</h5>-->
+<!--    <p class="card-text">-->
+<!--     Price:${{product.price}}-->
+<!--    </p>-->
+<!--    <a href="#" class="btn btn-primary">Buy Now</a>-->
+<!--  </div>-->
+<!--</div>-->
+<!--        </div>-->
+
+
+<!--{% endfor %}-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        {% for student in students %}
+
+
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">TITLE: {{ student.name }}</h5>
+                    <p class="card-text">
+                        YEAR: {{ student.year }}<br>
+                        {% if student.status %}
+                        STATUS: PASS
+                        {% else %}
+                        STATUS: FAIL
+                        {% endif %}
+                    </p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+
+
+ {% endblock %}
+
+
+
+
+
+
+

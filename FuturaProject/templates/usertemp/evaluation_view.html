@@ -1,0 +1,49 @@
+{% extends 'usertemp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <div class="card w-75" >
+
+  <div class="card-body">
+    <h5 class="card-title text-center">Evaluation Marks</h5>
+    {% if not mark %}
+
+
+    <h3 class="text-center">No contents </h3>
+{% else %}
+    <table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">Date</th>
+      <th scope="col">Section</th>
+      <th scope="col">Mcq</th>
+      <th scope="col">Machine Test</th>
+      <th scope="col">Evaluation</th>
+      <th scope="col">Total</th>
+
+
+     </tr>
+  </thead>
+  <tbody>
+  {% for i in mark %}
+    <tr>
+      <td>{{i.evaluation_date}}</td>
+  <td>{{i.evaluation_section}}</td>
+
+      <td>{{i.mcq}}</td>
+      <td>{{i.machine_test}}</td>
+      <td>{{i.evaluation}}</td>
+      <td>{{i.total_mark}}</td>
+
+
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+{% endif %}
+  </div>
+</div>
+
+{% endblock %}
+
+

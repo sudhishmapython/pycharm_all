@@ -1,0 +1,26 @@
+{% extends 'theme.html' %}
+{% block content %}
+
+
+<div class="card text-center" style="width: 25rem;">
+  <h1>Name:{{name}}</h1>
+  <h1>Year:{{year}}</h1>
+<!--  {% for student in students %}-->
+<!--<h1>name:{{student.name}}</h1>-->
+<!--<h1>year:{{student.year}}</h1>-->
+
+<!--{% endfor %}-->
+<a href="{% url 'demo' %}">
+<button type="button" class="btn btn-outline-primary">submit</button></a>
+
+
+
+
+  </div>
+
+
+
+
+
+
+{% endblock %}

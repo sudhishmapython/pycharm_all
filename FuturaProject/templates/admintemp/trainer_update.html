@@ -1,0 +1,24 @@
+{% extends 'admintemp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <div class="col-lg-10">
+  <div class="card w-100">
+    <div class="card-body">
+       <h2 style="color:black; text-align:center; font-family: Times New Roman;"> Triner</h2><br>
+
+       <form method="POST">
+   {% csrf_token %}
+
+    {{updateform|crispy}}
+    <button class="btn btn-outline-dark" type="submit" style="margin-left:350px;">Submit</button>
+    </form>
+    </div>
+
+
+
+</div>
+  </div>
+
+{% endblock %}
+
+

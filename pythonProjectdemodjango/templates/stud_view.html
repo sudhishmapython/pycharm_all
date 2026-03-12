@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Mark</th>
+    </tr>
+
+    {% for i in data %}
+    <tr>
+        <td>{{i.name}}</td>
+         <td>{{i.mark}}</td>
+        <td>
+            <a href="{% url 'studupdates' i.id %}"> <button type="button" class="btn btn-success">Edit</button></a>
+<button type="button" class="btn btn-danger">delete</button>
+
+        </td>
+    </tr>
+{% endfor %}
+</table>
+</body>
+</html>

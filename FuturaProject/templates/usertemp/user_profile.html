@@ -1,0 +1,75 @@
+{% extends 'usertemp/base.html' %}
+{% block content %}
+
+<div class="col-md-8">
+    {% for message in messages %}
+    <div class="alert alert-primary" role="alert">
+        {{message}}
+    </div>
+    {% endfor %}
+    <div class="card">
+        <div class="card-header text-center">
+            <i class="fa fa-user"></i><strong class="card-title pl-2 ">My Profile </strong>
+        </div>
+        {% for u in profile %}
+        <div class="card-body">
+            <div class="mx-auto d-block">
+
+                <h5 class="text-sm-center mt-2 mb-1">{{u.name}}</h5>
+                <div class="location text-sm-center"><i class="fa fa-map-marker"></i> {{u.phone_no}}</div>
+
+                <hr>
+                <div class="ml-5 mt-2 mb-1">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label>Name</label>
+                        </div>
+                        <div class="col-lg-2">
+                            <label>: {{u.name}}</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <label>Technology</label>
+                        </div>
+                        <div class="col-lg-2">
+                            <label>: {{u.technology}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label>Duration</label>
+                        </div>
+                        <div class="col-lg-2">
+                            <label>: {{u.duration}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label>Mod of class</label>
+                        </div>
+                        <div class="col-lg-2">
+                            <label>: {{u.mod_of_class}}</label>
+                        </div>
+                    </div>
+<!--                    <div class="row">-->
+<!--                        <div class="col-lg-6">-->
+<!--                            <label>Recent Vaccinations</label>-->
+<!--                        </div>-->
+<!--                        <div class="col-lg-2">-->
+<!--                            <label>:{{u.recent_vaccinations}}</label>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+
+            </div>
+
+            <hr>
+            <div class="card-text text-sm-center">
+
+                    <button type="button" class="btn btn-primary ">Update</button>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

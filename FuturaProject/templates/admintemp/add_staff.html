@@ -1,0 +1,42 @@
+{% extends 'admintemp/base.html' %}
+{% block content %}
+{% load crispy_forms_filters %}
+<div class="col-lg-8">
+    <div class="card">
+        <div class="card-header"><strong>Add Staff</strong></div>
+        <div class="card-body card-block">
+            <form method="post">{% csrf_token %}
+                <div class="form-group">
+                    <label class=" form-control-label">Name</label>
+                    <input  required  class="form-control" readonly value="{{student.name}}">
+                </div>
+                <div class="form-group">
+                    <label class=" form-control-label">Technology</label>
+                    <input  required  class="form-control" readonly value="{{student.technology}}">
+                </div>
+                <div class="form-group">
+                    <label class=" form-control-label">Mod of Class</label>
+                    <input  required  class="form-control" readonly value="{{student.mod_of_class}}">
+                </div>
+                <div class="form-group">
+                    <label class=" form-control-label">Class Duration</label>
+                    <input  required  class="form-control" readonly value="{{student.duration}}">
+                </div>
+                <div class="form-group">
+                    <label for="staff" class=" form-control-label">Staff</label>
+                    <select id="staff" class="form-control" name="staff">
+                        {% for trainer in trainers %}
+
+                            <option value="{{ trainer.id }}">{{ trainer.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-actions form-group ">
+                    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

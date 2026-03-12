@@ -1,0 +1,38 @@
+{% extends 'theme.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+    <div class="row">
+        <div class="card text-center">
+
+<table>
+    <tr><th>name</th>
+    <th>course</th>
+    <th>mark</th>
+    <th>image</th></tr>
+
+      {% for i in image %}
+       <tr>
+
+           <td>{{ i.name }}</td>
+           <td>{{ i.course }}</td>
+           <td>{{ i.mark }}</td>
+           <td><img src="{{ i.image.url }}" alt="image" width="150px" height="150px"></td>
+
+
+
+           <td> <a href="{% url 'student_update' i.id %}"><button class="btn btn-outline-dark ">Edit</button></a>
+      <a href="{% url 'student_delete' i.id %}"><button class="btn btn-outline-dark  ">Delete</button></a></td>
+
+
+       </tr>
+    {%endfor %}
+</table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

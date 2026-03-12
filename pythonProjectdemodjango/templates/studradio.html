@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<h2>Student Form</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <p>
+        {{ form.name.label }}<br>
+        {{ form.name }}
+    </p>
+
+    <!-- Radio button -->
+    <p>
+        <strong>Gender:</strong><br>
+        {{ form.gender }}
+    </p>
+
+    <!-- Multiple checkbox -->
+    <p>
+        <strong>Courses:</strong><br>
+        {{ form.courses }}
+    </p>
+
+    <!-- Dropdown -->
+    <p>
+        <strong>Status:</strong><br>
+        {{ form.status }}
+    </p>
+
+    <!-- Single checkbox -->
+    <p>
+        {{ form.accept_terms }} I accept the terms
+    </p>
+
+    <button type="submit">Save</button>
+</form>
+
+
+
+
+</body>
+</html>

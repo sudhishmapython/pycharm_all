@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>name</th>
+        <th>mark</th>
+        <th>course</th>
+    </tr>
+    {%  for i in data%}
+    <tr>
+        <td>{{i.name}}</td>
+          <td>{{i.mark}}</td>
+          <td>{{i.course}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

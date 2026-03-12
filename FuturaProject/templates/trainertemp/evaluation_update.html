@@ -1,0 +1,26 @@
+{% extends 'trainertemp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="card w-75">
+    <div class="card-body">
+        <h2 style="color:black; text-align:center; font-family: Times New Roman;">Trainer</h2><br>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="section" style="font-size:medium">Section</label>
+                <select class="form-control" id="section" name="section">
+                    {% for section in available_sections %}
+                        <option value="{{ section.id }}">{{ section.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            {{ updateform|crispy }}
+
+
+            <button class="btn btn-outline-dark" type="submit" style="margin-left:150px;">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

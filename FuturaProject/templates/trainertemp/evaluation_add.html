@@ -1,0 +1,65 @@
+ {% extends 'trainertemp/base.html' %}
+{% block content %}
+{% load crispy_forms_filters %}
+<div class="col-lg-8">
+    <div class="card">
+        <div class="card-header"><strong>ADD MARK</strong></div>
+        <div class="card-body card-block">
+            <form method="post">{% csrf_token %}
+
+                <div class="form-group">
+                    <label class="form-control-label">Student</label>
+                    <input required class="form-control" readonly value="{{form.name}}">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label">Technology</label>
+                    <input required class="form-control" readonly value="{{form.technology}}">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label">Date</label>
+                    <input type="date" required class="form-control" name="date">
+                </div>
+
+
+    <div class="form-group">
+        <label class="mb-2">Sections</label>
+        <select class="form-control" name="section" id="sec1">
+            <option value="">Select Section</option>
+            {% for section in sections %}
+                <option value="{{ section.id }}">{{section.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+                <div class="form-group">
+                    <label class="form-control-label">Mcq</label>
+                    <input type="text" required class="form-control" name="mcq">
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label">Machine Test</label>
+                    <input type="text" required class="form-control" name="mtest">
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label">Evaluation</label>
+                    <input type="text" required class="form-control" name="evaluation">
+                </div>
+
+
+                <div class="form-actions form-group">
+                    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                </div>
+            </form>
+
+<!--            {% for message in messages %}-->
+<!--                <div class="alert alert-primary" role="alert">-->
+<!--                    {{ message }}-->
+<!--                </div>-->
+<!--            {% endfor %}-->
+        </div>
+    </div>
+</div>
+
+
+{% endblock  %}

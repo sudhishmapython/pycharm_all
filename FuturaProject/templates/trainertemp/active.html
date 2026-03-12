@@ -1,0 +1,48 @@
+{% extends 'trainertemp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-lg-10">
+<div class="card">
+  <div class="card-body">
+
+      <h3 class="card-title text-center">Student Details</h3>
+      {% if not details %}
+      <h3 class="text-center">No Results Found</h3>
+    {% else %}
+    <div class="table-responsive" style="height: 400px;overflow-y: auto;">
+      <table class="table">
+        <thead>
+          <tr class="table-primary">
+            <th scope="col">Name</th>
+            <th scope="col">Mod of class</th>
+            <th scope="col">Technology</th>
+            <th scope="col">Duration</th>
+
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in details %}
+            <tr>
+              <td>{{ i.name }}</td>
+              <td>{{ i.mod_of_class }}</td>
+              <td>{{ i.technology }}</td>
+              <td>{{ i.duration }}</td>
+
+              <td>
+                <div class="btn-group" role="group">
+                  <a href="{% url 'add_evaluation' i.id %}" class="btn btn-outline-dark">Add mark</a>
+
+
+                </div>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+  </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'trainertemp/base.html' %}
+{% block content %}
+{% load crispy_forms_filters %}
+
+
+
+<div class="card w-75">
+        <div class="card-body">
+            <h2 style="color:black; text-align:center; font-family: Times New Roman;">Add Attendance</h2><br>
+            <form method="POST" class="border border-secondary p-5">
+                {% csrf_token %}
+                <div class="row ">
+                                <div class="form-outline mb-4 col-md-6">
+                                    <label class=" form-control-label">Date</label>
+                    <input  required  class="form-control" readonly value="{{date}}">
+                                </div>
+
+                    <div class="form-outline mb-4 col-md-6">
+    <label class="form-control-label">Students</label>
+    {% for student in data.students.all %}
+                        <div style="margin-left:50px;">
+            <input type="checkbox" required class="form-check-input check " id="student{{ forloop.counter }}" name="checkbox1" value="{{ student.id }}">
+            <label class="form-check-label" style="margin-left:15px;" for="student{{ forloop.counter }}">{{ student.name }}</label>
+        </div>
+    {% endfor %}
+</div>
+
+
+                </div>
+                <button class="btn btn-outline-dark" type="submit" style="margin-left:300px;">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+<style>
+    .check{
+        width: 20px;
+        height:15px;
+
+    }
+
+    label{
+    width: 200px;
+    }
+
+</style>
+
+
+
+{% endblock %}

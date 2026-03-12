@@ -1,0 +1,53 @@
+{% extends 'admintemp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-lg-11">
+  <div class="card">
+<!--    <form method="get" class="form-inline justify-content-end">-->
+<!--      <div class="form-group">-->
+<!--        {{ userFilter.form }}-->
+<!--      </div>-->
+<!--      <button class="btn btn-primary ml-2" type="submit">Search</button>-->
+<!--    </form>-->
+    <div class="card-body">
+      <h5 class="card-title text-center">Active Students</h5>
+      <div class="table-responsive" style="height: 400px;overflow-y: auto;">
+        <table class="table">
+          <thead>
+            <tr class="table-primary">
+              <th scope="col">Name</th>
+              <th scope="col">Mod</th>
+              <th scope="col">Technology</th>
+              <th scope="col">Join_date</th>
+              <th scope="col">Duration</th>
+              <th scope="col">Staff</th>
+              <th scope="col">Month</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in details %}
+              <tr>
+                <td>{{ i.name }}</td>
+                <td>{{ i.mod }}</td>
+                <td>{{ i.technology }}</td>
+                <td>{{ i.join_date }}</td>
+                <td>{{ i.duration }}</td>
+                <td>{{ i.staff }}</td>
+                <td>{{ i.month }}</td>
+                <td>
+                  <a href="{% url 'active_update' i.id %}"><button type="button" class="btn btn-outline-dark">Edit</button></a>
+                  <form action="{% url 'active_delete' i.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-dark">Delete</button>
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

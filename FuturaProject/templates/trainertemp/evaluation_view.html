@@ -1,0 +1,59 @@
+{% extends 'trainertemp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-lg-12">
+  <div class="card" style="overflow-y: auto;">
+    <div class="card-body">
+      <h5 class="card-title text-center">Evaluation Details</h5>
+
+      {% for date, evaluations in grouped_evaluations.items %}
+       <br> <h6>Date: {{ date }}</h6><br>
+      <div class="table-responsive" >
+        <table class="table">
+          <thead>
+            <tr class="table-primary">
+              <th scope="col">Name</th>
+        <th scope="col">Technology</th>
+        <th scope="col">Section</th>
+      <th scope="col">Mcq</th>
+      <th scope="col">Machine Test</th>
+      <th scope="col">Evaluation</th>
+      <th scope="col">Total</th>
+              <th scope="col">Actions</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            {% for evaluation in evaluations %}
+              <tr>
+                <td>{{evaluation.student.name}}</td>
+        <td>{{evaluation.technology}}</td>
+        <td>{{evaluation.evaluation_section}}</td>
+      <td>{{evaluation.mcq}}</td>
+        <td>{{evaluation.machine_test}}</td>
+      <td>{{evaluation.evaluation}}</td>
+      <td>{{evaluation.total_mark}}</td>
+                <td>
+                  <a href="{% url 'evaluation_update' evaluation.id %}">
+                    <button type="button" class="btn btn-outline-dark">Edit</button>
+                  </a>
+                  <form action="{% url 'evaluation_delete' evaluation.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-dark">Delete</button>
+                  </form>
+                </td>
+              </tr>
+
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% empty %}
+                <tr>
+                    <td colspan="7"><h3 class="text-center">No Results Found</h3></td>
+                </tr>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'admintemp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-lg-10">
+  <div class="card w-100">
+    <div class="card-body">
+       <h2 style="color:black; text-align:center; font-family: Times New Roman;"> Sections</h2><br>
+
+       <form method="POST">
+   {% csrf_token %}
+
+    {{form|crispy}}
+    <button class="btn btn-outline-dark" type="submit" style="margin-left:250px;">Submit</button>
+    </form>
+    </div>
+
+
+</div>
+    {% for message in messages %}
+                    <div class="alert alert-primary" role="alert">
+                        {{message}}
+                    </div>
+                    {% endfor %}
+
+  </div>
+
+{% endblock %}
+
+
