@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% if cert %}
+    <h3>Valid Certificate</h3>
+    <p>Name: {{ cert.student_name }}</p>
+    <p>Course: {{ cert.course }}</p>
+    <p>ID: {{ cert.certificate_id }}</p>
+{% else %}
+    <h3>{{ error }}</h3>
+{% endif %}
+
+
+</body>
+</html>
