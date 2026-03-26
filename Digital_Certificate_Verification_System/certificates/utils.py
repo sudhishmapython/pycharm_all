@@ -99,3 +99,9 @@ def generate_certificate_pdf(data):
 
     file_name = f"{uuid.uuid4()}.pdf"
     return file_name, ContentFile(output.getvalue())
+
+
+
+def generate_certificate_pdf_preview(data):
+    file_name, pdf_file = generate_certificate_pdf(data)
+    return pdf_file.read()

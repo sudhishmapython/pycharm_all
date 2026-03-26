@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% load custom_filters %}
+<h2>Preview</h2>
+
+<!-- Looks like text, but clickable -->
+<a href="/preview-pdf/" target="_blank" style="
+    display:inline-block;
+    padding:10px 20px;
+    background:#007bff;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+">
+    View Certificate Preview
+</a>
+
+<br><br>
+
+<a href="{% url 'generate' %}">Edit</a>
+
+<form method="post" action="{% url 'confirm_certificate' %}">
+    {% csrf_token %}
+    <button type="submit">Confirm</button>
+</form>
+</body>
+</html>
