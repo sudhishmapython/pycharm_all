@@ -34,17 +34,17 @@ def generate_certificate_pdf(data):
     # ================================
     # 🔥 NAME
     # ================================
-    can.setFont("TimesNewRoman-Bold", 26)
+    can.setFont("TimesNewRoman-Bold", 20)
     name = str(data.get('student_name', ''))
-    name_width = can.stringWidth(name, "TimesNewRoman-Bold", 26)
+    name_width = can.stringWidth(name, "TimesNewRoman-Bold", 20)
     can.drawString((page_width - name_width) / 2, 404, name)
 
     # ================================
     # 🔥 COURSE
     # ================================
-    can.setFont("TimesNewRoman", 18)
+    can.setFont("TimesNewRoman", 14)
     course = str(data.get('course', ''))
-    course_width = can.stringWidth(course, "TimesNewRoman", 18)
+    course_width = can.stringWidth(course, "TimesNewRoman", 14)
     can.drawString((page_width - course_width) / 2, 320, course)
 
     # ================================
@@ -53,7 +53,7 @@ def generate_certificate_pdf(data):
     can.setFont("TimesNewRoman", 14)
     performance = str(data.get('performance', ''))
     perf_width = can.stringWidth(performance, "TimesNewRoman", 14)
-    can.drawString((page_width - perf_width) / 2, 350, performance)
+    can.drawString(350, 252, performance)
 
     # ================================
     # 🔥 FROM - TO DATE
@@ -65,13 +65,13 @@ def generate_certificate_pdf(data):
     # ================================
     # 🔥 ISSUE DATE
     # ================================
-    can.drawString(260, 260, issue_date)
+    can.drawString(460, 784, issue_date)
 
     # ================================
     # 🔥 CERTIFICATE ID
     # ================================
-    can.setFont("TimesNewRoman", 10)
-    can.drawString(200, 220, f"Certificate ID: {certificate_id}")
+    can.setFont("TimesNewRoman", 12)
+    can.drawString(143, 783, certificate_id)
 
     can.save()
 
