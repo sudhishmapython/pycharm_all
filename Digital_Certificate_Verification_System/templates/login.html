@@ -5,12 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-<h2>Generate Certificate</h2>
-
+<h2>Login</h2>
 <form method="post">
 {% csrf_token %}
-{{ form.as_p }}
-<button>Generate</button>
+<input type="text" name="username"><br>
+<input type="password" name="password"><br>
+<button type="submit">Login</button>
 </form>
+{{ error }}
+
 </body>
 </html>

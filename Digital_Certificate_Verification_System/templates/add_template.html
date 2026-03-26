@@ -5,12 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-<h2>Generate Certificate</h2>
-
-<form method="post">
+<h2>Upload Template</h2>
+<form method="post" enctype="multipart/form-data">
 {% csrf_token %}
 {{ form.as_p }}
-<button>Generate</button>
+<button>Upload</button>
 </form>
+
 </body>
 </html>

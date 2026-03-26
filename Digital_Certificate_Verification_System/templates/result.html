@@ -5,16 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-
 {% if cert %}
-    <h3>Valid Certificate</h3>
-    <p>Name: {{ cert.student_name }}</p>
-    <p>Course: {{ cert.course }}</p>
-    <p>ID: {{ cert.certificate_id }}</p>
+<h3>Valid Certificate</h3>
+<p>{{ cert.student_name }}</p>
+<p>{{ cert.course }}</p>
+<p>{{ cert.certificate_id }}</p>
+<a href="{{ cert.pdf_file.url }}">Download PDF</a>
 {% else %}
-    <h3>{{ error }}</h3>
+<h3>{{ error }}</h3>
 {% endif %}
-
 
 </body>
 </html>
