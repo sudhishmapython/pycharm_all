@@ -138,7 +138,7 @@ def verify_certificate(request):
             cert = Certificate.objects.get(certificate_id=cert_id)
 
             return render(request, 'verify.html', {
-                'cert': cert
+                'pdf_url': cert.pdf_file.url
             })
 
         except Certificate.DoesNotExist:
